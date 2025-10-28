@@ -66,6 +66,7 @@ print(f"Best accuracy: {grid_search.best_score_}")
 '''
 
 y_prediction_knn = pipe_knn.predict(x_test)
+
 acc_knn = accuracy_score(y_test, y_prediction_knn)
 prec_knn = precision_score(y_test, y_prediction_knn)
 rcl_knn = recall_score(y_test, y_prediction_knn)
@@ -74,6 +75,7 @@ f1c_knn = f1_score(y_test, y_prediction_knn)
 fpr, tpr, thresholds = metrics.roc_curve(y_test, y_prediction_knn)
 roc_auc = metrics.auc(fpr, tpr)
 display1 = metrics.RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc, name='KNeighborsClassifier')
+
 precision, recall, _ = metrics.precision_recall_curve(y_test, y_prediction_knn)
 display2 = metrics.PrecisionRecallDisplay(precision=precision, recall=recall)
 display1.plot()
