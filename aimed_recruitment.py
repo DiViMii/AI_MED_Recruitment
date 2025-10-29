@@ -74,12 +74,12 @@ f1c_knn = f1_score(y_test, y_prediction_knn)
 
 fpr, tpr, thresholds = metrics.roc_curve(y_test, y_prediction_knn)
 roc_auc = metrics.auc(fpr, tpr)
-display1 = metrics.RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc, name='KNeighborsClassifier')
+display_knn_roc = metrics.RocCurveDisplay(fpr=fpr, tpr=tpr, roc_auc=roc_auc, name='KNeighborsClassifier')
 
 precision, recall, _ = metrics.precision_recall_curve(y_test, y_prediction_knn)
-display2 = metrics.PrecisionRecallDisplay(precision=precision, recall=recall)
-display1.plot()
-display2.plot()
+display_knn_pr = metrics.PrecisionRecallDisplay(precision=precision, recall=recall)
+display_knn_roc.plot()
+display_knn_pr.plot()
 
 print(f"Accuracy of KNN classifier: {acc_knn:.3f}")
 print(f"Precision of KNN classifier: {prec_knn:.3f}")
